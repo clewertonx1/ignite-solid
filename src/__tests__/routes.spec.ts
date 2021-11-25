@@ -101,8 +101,8 @@ describe("[GET] /users", () => {
       email: String(Math.random()),
     });
 
-    usersRepository.turnAdmin(user1);
-
+    const teste = usersRepository.turnAdmin(user1);
+    console.log(teste);
     const user2 = usersRepository.create({
       name: String(Math.random()),
       email: String(Math.random()),
@@ -114,7 +114,7 @@ describe("[GET] /users", () => {
     });
 
     const response = await request(app).get("/users").set("user_id", user1.id);
-
+    console.log(response.body);
     expect(
       response.body.map((res) => ({
         ...res,
